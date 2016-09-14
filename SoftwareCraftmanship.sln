@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftwareCraftmanship", "Sof
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftwareCraftmanship.UnitTests", "SoftwareCraftmanship.UnitTests\SoftwareCraftmanship.UnitTests.csproj", "{B082D351-ED88-48AA-B523-8CBC08065F66}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringCalculatorTDD", "StringCalculator\StringCalculatorTDD.csproj", "{1FF702E4-5073-4C9B-B10D-94B74AE15AA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringCalculatorTDD.UnitTests", "StringCalculator.UnitTests\StringCalculatorTDD.UnitTests.csproj", "{29E1DAAD-A668-4502-8463-052C09A8BD05}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{B082D351-ED88-48AA-B523-8CBC08065F66}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B082D351-ED88-48AA-B523-8CBC08065F66}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B082D351-ED88-48AA-B523-8CBC08065F66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FF702E4-5073-4C9B-B10D-94B74AE15AA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FF702E4-5073-4C9B-B10D-94B74AE15AA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FF702E4-5073-4C9B-B10D-94B74AE15AA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FF702E4-5073-4C9B-B10D-94B74AE15AA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29E1DAAD-A668-4502-8463-052C09A8BD05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29E1DAAD-A668-4502-8463-052C09A8BD05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29E1DAAD-A668-4502-8463-052C09A8BD05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29E1DAAD-A668-4502-8463-052C09A8BD05}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
