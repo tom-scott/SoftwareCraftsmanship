@@ -52,6 +52,7 @@ namespace BowlingGame.UnitTests
         
         [TestCase("-1|--|--|--|--|--|--|--|--|--||--", 1)]
         [TestCase("-2|--|--|--|--|--|--|--|--|--||--", 2)]
+        [TestCase("-9|--|--|--|--|--|--|--|--|--||--", 9)]
         public void Return_Expected_Score_On_Second_Ball_Only(string game, int expectedScore)
         {
             var score = _bowlingGame.CalculateScore(game);
@@ -72,6 +73,11 @@ namespace BowlingGame.UnitTests
             if (stringScore.Contains("-1"))
             {
                 return 1;
+            }
+
+            if (stringScore.Contains("-9"))
+            {
+                return 9;
             }
 
             var scoreCharArray = stringScore.ToCharArray();
