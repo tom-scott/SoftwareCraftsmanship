@@ -42,6 +42,7 @@ namespace BowlingGame.UnitTests
         [TestCase("1-|--|--|--|--|--|--|--|--|--||--", 1)]
         [TestCase("2-|--|--|--|--|--|--|--|--|--||--", 2)]
         [TestCase("3-|--|--|--|--|--|--|--|--|--||--", 3)]
+        [TestCase("9-|--|--|--|--|--|--|--|--|--||--", 9)]
         public void Return_ExpectedScore_Given_Game_With_First_Ball(string game, int expectedScore)
         {
             var score = _bowlingGame.CalculateScore(game);
@@ -54,19 +55,14 @@ namespace BowlingGame.UnitTests
     {
         public int CalculateScore(string stringScore)
         {
-            if (stringScore.Contains("2"))
-            {
-                return 2;
-            }
+            var scoreCharArray = stringScore.ToCharArray();
 
-            if (stringScore.Contains("3"))
-            {
-                return 3;
-            }
+            var firstBall = scoreCharArray[0];
 
-            if (stringScore.Contains("1"))
+            int score;
+            if (int.TryParse(firstBall.ToString(), out score))
             {
-                return 1;
+                return score;
             }
 
             if (stringScore.Contains("X"))
