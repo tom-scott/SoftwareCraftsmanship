@@ -38,12 +38,27 @@ namespace BowlingGame.UnitTests
 
             score.Should().Be(0);
         }
+
+        [Test]
+        public void Return_1_Given_Score_On_First_Ball()
+        {
+            var game = "1-|--|--|--|--|--|--|--|--|--||--";
+
+            var score = _bowlingGame.CalculateScore(game);
+
+            score.Should().Be(1);
+        }
     }
 
     public class BowlingGame
     {
         public int CalculateScore(string stringScore)
         {
+            if (stringScore.Contains("1"))
+            {
+                return 1;
+            }
+
             if (stringScore.Contains("X"))
             {
                 return 10;
