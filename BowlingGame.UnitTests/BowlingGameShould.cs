@@ -68,29 +68,31 @@ namespace BowlingGame.UnitTests
 
         public int CalculateScore(string stringScore)
         {
-            var scoreCharArray = stringScore.ToCharArray();
-
             int totalScore = 0;
 
             for (int i = 0; i < 2; i++)
             {
-                var ball = scoreCharArray[i];
-                var ballString = ball.ToString();
+                var ball = stringScore[i].ToString();
 
                 int score;
 
-                if (int.TryParse(ballString, out score))
+                if (int.TryParse(ball, out score))
                 {
                     totalScore += score;
                 }
 
-                if (ballString.Contains(StrikeSymbol))
+                if (IsAStrike(ball))
                 {
                     totalScore += StrikeScore;
                 }
             }
 
             return totalScore;
+        }
+
+        private bool IsAStrike(string ball)
+        {
+            return ball.Contains(StrikeSymbol);
         }
     }
 }
