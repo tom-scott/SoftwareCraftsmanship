@@ -63,6 +63,9 @@ namespace BowlingGame.UnitTests
 
     public class BowlingGame
     {
+        private const int StrikeScore = 10;
+        private const string StrikeSymbol = "X";
+
         public int CalculateScore(string stringScore)
         {
             var scoreCharArray = stringScore.ToCharArray();
@@ -72,22 +75,19 @@ namespace BowlingGame.UnitTests
             for (int i = 0; i < 2; i++)
             {
                 var ball = scoreCharArray[i];
+                var ballString = ball.ToString();
 
                 int score;
-                if (int.TryParse(ball.ToString(), out score))
+
+                if (int.TryParse(ballString, out score))
                 {
                     totalScore += score;
                 }
 
-                if (stringScore.Contains("X"))
+                if (ballString.Contains(StrikeSymbol))
                 {
-                    totalScore += 10;
+                    totalScore += StrikeScore;
                 }
-            }
-
-            if (stringScore.Contains("X"))
-            {
-                return 10;
             }
 
             return totalScore;
