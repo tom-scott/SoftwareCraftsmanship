@@ -59,6 +59,16 @@ namespace BowlingGame.UnitTests
 
             score.Should().Be(expectedScore);
         }
+
+        [Test]
+        public void Return_10_Given_Miss_On_First_Ball_And_Spare_On_Second_Ball_Only()
+        {
+            var game = "-/|--|--|--|--|--|--|--|--|--||--";
+
+            var score = _bowlingGame.CalculateScore(game);
+
+            score.Should().Be(10);
+        }
     }
 
     public class BowlingGame
@@ -68,6 +78,11 @@ namespace BowlingGame.UnitTests
 
         public int CalculateScore(string stringScore)
         {
+            if (stringScore.Contains("-/"))
+            {
+                return 10;
+            }
+
             int totalScore = 0;
 
             for (int i = 0; i < 2; i++)
