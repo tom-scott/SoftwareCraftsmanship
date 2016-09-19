@@ -38,25 +38,14 @@ namespace BowlingGame.UnitTests
 
             score.Should().Be(0);
         }
-
-        [Test]
-        public void Return_1_Given_Score_On_First_Ball()
+        
+        [TestCase("1-|--|--|--|--|--|--|--|--|--||--", 1)]
+        [TestCase("2-|--|--|--|--|--|--|--|--|--||--", 2)]
+        public void Return_ExpectedScore_Given_Game_With_First_Ball(string game, int expectedScore)
         {
-            var game = "1-|--|--|--|--|--|--|--|--|--||--";
-
             var score = _bowlingGame.CalculateScore(game);
 
-            score.Should().Be(1);
-        }
-
-        [Test]
-        public void Return_2_Given_Hits_Two_Pins_On_First_Ball()
-        {
-            var game = "2-|--|--|--|--|--|--|--|--|--||--";
-
-            var score = _bowlingGame.CalculateScore(game);
-
-            score.Should().Be(2);
+            score.Should().Be(expectedScore);
         }
     }
 
