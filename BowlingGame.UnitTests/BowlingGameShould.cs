@@ -20,7 +20,7 @@ namespace BowlingGame.UnitTests
         }
 
         [Test]
-        public void Return_Strike_When_First_Ball_Knocks_Down_All_Pins()
+        public void Return_10_Given_Strike_On_First_Ball()
         {
             var game = "X|--|--|--|--|--|--|--|--|--||--";
 
@@ -28,13 +28,28 @@ namespace BowlingGame.UnitTests
 
             score.Should().Be(10);
         }
+
+        [Test]
+        public void Return_0_Given_All_Ball_Misses_All_Pins()
+        {
+            var game = "--|--|--|--|--|--|--|--|--|--||--";
+
+            var score = _bowlingGame.CalculateScore(game);
+
+            score.Should().Be(0);
+        }
     }
 
     public class BowlingGame
     {
         public int CalculateScore(string stringScore)
         {
-            return 10;
+            if (stringScore.Contains("X"))
+            {
+                return 10;
+            }
+
+            return 0;
         }
     }
 }
