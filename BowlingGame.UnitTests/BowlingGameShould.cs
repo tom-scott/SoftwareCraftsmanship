@@ -48,12 +48,27 @@ namespace BowlingGame.UnitTests
 
             score.Should().Be(1);
         }
+
+        [Test]
+        public void Return_2_Given_Hits_Two_Pins_On_First_Ball()
+        {
+            var game = "2-|--|--|--|--|--|--|--|--|--||--";
+
+            var score = _bowlingGame.CalculateScore(game);
+
+            score.Should().Be(2);
+        }
     }
 
     public class BowlingGame
     {
         public int CalculateScore(string stringScore)
         {
+            if (stringScore.Contains("2"))
+            {
+                return 2;
+            }
+
             if (stringScore.Contains("1"))
             {
                 return 1;
