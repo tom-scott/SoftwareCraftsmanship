@@ -65,29 +65,24 @@ namespace BowlingGame.UnitTests
     {
         public int CalculateScore(string stringScore)
         {
-            if (stringScore.Contains("-2"))
-            {
-                return 2;
-            }
-
-            if (stringScore.Contains("-1"))
-            {
-                return 1;
-            }
-
-            if (stringScore.Contains("-9"))
-            {
-                return 9;
-            }
-
             var scoreCharArray = stringScore.ToCharArray();
 
-            var firstBall = scoreCharArray[0];
+            int totalScore = 0;
 
-            int score;
-            if (int.TryParse(firstBall.ToString(), out score))
+            for (int i = 0; i < 2; i++)
             {
-                return score;
+                var ball = scoreCharArray[i];
+
+                int score;
+                if (int.TryParse(ball.ToString(), out score))
+                {
+                    totalScore += score;
+                }
+
+                if (stringScore.Contains("X"))
+                {
+                    totalScore += 10;
+                }
             }
 
             if (stringScore.Contains("X"))
@@ -95,7 +90,7 @@ namespace BowlingGame.UnitTests
                 return 10;
             }
 
-            return 0;
+            return totalScore;
         }
     }
 }
