@@ -69,6 +69,16 @@ namespace BowlingGame.UnitTests
 
             score.Should().Be(10);
         }
+
+        [Test]
+        public void Return_10_Given_1_On_First_Ball_And_Spare_On_Second_Ball_Only()
+        {
+            var game = "1/|--|--|--|--|--|--|--|--|--||--";
+
+            var score = _bowlingGame.CalculateScore(game);
+
+            score.Should().Be(10);
+        }
     }
 
     public class BowlingGame
