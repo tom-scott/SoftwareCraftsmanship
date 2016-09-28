@@ -19,33 +19,33 @@ namespace RomanNumbersKata
                 { 50, "L" },
                 { 90, "XC" },
                 { 100, "C" },
+                { 400, "CD" },
+                { 500, "D" },
+                { 900, "CM" },
+                { 1000, "M" },
             };
         }
 
         public string FromArabic(int arabic)
         {
-            string romanNumeral = string.Empty;
+            var romanNumeral = string.Empty;
 
-            if (_arabicToRoman.TryGetValue(arabic, out romanNumeral))
+            var remainderArabic = arabic;
+            while (remainderArabic > 0)
             {
-                return romanNumeral;
-            }
-
-
-            int keyForRoman = 10;
-
-            foreach (var arabicKey in _arabicToRoman.Keys)
-            {
-                if (arabic > arabicKey)
+                var keyForRoman = 0;
+                foreach (var arabicKey in _arabicToRoman.Keys)
                 {
-                    keyForRoman = arabicKey;
+                    if (remainderArabic >= arabicKey)
+                    {
+                        keyForRoman = arabicKey;
+                    }
                 }
-            }
-            
 
-            var remainderArabic = arabic - keyForRoman;
-            romanNumeral = _arabicToRoman[keyForRoman];
-            romanNumeral += FromArabic(remainderArabic);
+                remainderArabic = remainderArabic - keyForRoman;
+                romanNumeral = romanNumeral + _arabicToRoman[keyForRoman];
+            }
+
             return romanNumeral;
         }
     }
