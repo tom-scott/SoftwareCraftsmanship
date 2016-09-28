@@ -4,12 +4,12 @@
     {
         public string FromArabic(int arabic)
         {
+            var romanNumeral = "I";
             if (arabic == 2)
             {
-                return "II";
+                romanNumeral += romanNumeral;
             }
-
-            return "I";
+            return romanNumeral;
 
         }
     }
