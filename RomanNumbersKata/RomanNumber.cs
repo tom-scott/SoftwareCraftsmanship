@@ -1,18 +1,27 @@
-﻿namespace RomanNumbersKata
+﻿using System.Collections.Generic;
+
+namespace RomanNumbersKata
 {
     public class RomanNumber
     {
+        private readonly IDictionary<int, string> _arabicToRoman;
+
+        public RomanNumber()
+        {
+            _arabicToRoman = new Dictionary<int, string>
+            {
+                {1, "I"},
+                {2, "II"},
+                {3, "III"},
+                {4, "IV"}
+            };
+        }
+
         public string FromArabic(int arabic)
         {
-            var romanNumeral = "I";
-            if (arabic >= 2)
-            {
-                romanNumeral += "I";
-            }
-            if (arabic >= 3)
-            {
-                romanNumeral += "I";
-            }
+            string romanNumeral;
+            
+            _arabicToRoman.TryGetValue(arabic, out romanNumeral);
             return romanNumeral;
 
         }
