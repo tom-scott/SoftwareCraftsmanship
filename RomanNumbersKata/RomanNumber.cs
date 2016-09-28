@@ -14,17 +14,22 @@ namespace RomanNumbersKata
                 {2, "II"},
                 {3, "III"},
                 {4, "IV"},
-                {5, "V"},
-                {6, "VI"},
-                {7, "VII"},
-                {8, "VIII"},
+                {5, "V"}
             };
         }
 
         public string FromArabic(int arabic)
         {
             string romanNumeral;
-            
+
+            if (arabic > 5)
+            {
+                var remainderBeyond5 = arabic - 5;
+                romanNumeral = _arabicToRoman[5];
+                romanNumeral += FromArabic(remainderBeyond5);
+                return romanNumeral;
+            }
+
             _arabicToRoman.TryGetValue(arabic, out romanNumeral);
             return romanNumeral;
 
