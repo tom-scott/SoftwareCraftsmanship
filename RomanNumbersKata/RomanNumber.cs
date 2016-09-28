@@ -14,7 +14,10 @@ namespace RomanNumbersKata
                 {4, "IV"},
                 {5, "V"},
                 {9, "IX"},
-                {10, "X"}
+                {10, "X"},
+                { 40, "XL" },
+                { 50, "L" },
+                { 60, "LX" },
             };
         }
 
@@ -29,6 +32,7 @@ namespace RomanNumbersKata
 
 
             int keyForRoman = 10;
+            
             if (arabic > 1)
             {
                 keyForRoman = 1;
