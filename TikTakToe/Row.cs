@@ -1,6 +1,9 @@
 namespace TikTakToeGame
 {
-    public class Row
+    public enum Row
     {
+        Middle,
+        Bottom,
+        Top
     }
 }

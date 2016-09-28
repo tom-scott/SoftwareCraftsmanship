@@ -17,7 +17,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BowlingGame", "BowlingGame\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TikTakToeGame.UnitTests", "TikTakToe.UnitTests\TikTakToeGame.UnitTests.csproj", "{3FFE9E77-22FD-450A-B8DA-43492C7A3386}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TikTakToe", "TikTakToe\TikTakToe.csproj", "{6E44B55E-2AE0-49BD-A9E1-385420759DE9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TikTakToeGame", "TikTakToe\TikTakToeGame.csproj", "{6E44B55E-2AE0-49BD-A9E1-385420759DE9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

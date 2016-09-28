@@ -1,6 +1,9 @@
 namespace TikTakToeGame
 {
-    public class Column
+    public enum Column
     {
+        Center,
+        Left,
+        Right
     }
 }
