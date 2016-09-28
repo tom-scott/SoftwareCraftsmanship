@@ -17,9 +17,6 @@ namespace RomanNumbersKata
                 {10, "X"},
                 { 40, "XL" },
                 { 50, "L" },
-                { 60, "LX" },
-                { 70, "LXX" },
-                { 80, "LXXX" },
             };
         }
 
@@ -50,6 +47,10 @@ namespace RomanNumbersKata
                 keyForRoman = 10;
             }
 
+            if (arabic > 50)
+            {
+                keyForRoman = 50;
+            }
 
             var remainderArabic = arabic - keyForRoman;
             romanNumeral = _arabicToRoman[keyForRoman];
