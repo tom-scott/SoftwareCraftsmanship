@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BowlingGame.UnitTests", "Bo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BowlingGame", "BowlingGame\BowlingGame.csproj", "{A81CBD62-9ADA-4ABE-95A8-EB974E8239A2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TikTakToeGame.UnitTests", "TikTakToe.UnitTests\TikTakToeGame.UnitTests.csproj", "{3FFE9E77-22FD-450A-B8DA-43492C7A3386}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TikTakToe", "TikTakToe\TikTakToe.csproj", "{6E44B55E-2AE0-49BD-A9E1-385420759DE9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,14 @@ Global
 		{A81CBD62-9ADA-4ABE-95A8-EB974E8239A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A81CBD62-9ADA-4ABE-95A8-EB974E8239A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A81CBD62-9ADA-4ABE-95A8-EB974E8239A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FFE9E77-22FD-450A-B8DA-43492C7A3386}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FFE9E77-22FD-450A-B8DA-43492C7A3386}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FFE9E77-22FD-450A-B8DA-43492C7A3386}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FFE9E77-22FD-450A-B8DA-43492C7A3386}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E44B55E-2AE0-49BD-A9E1-385420759DE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E44B55E-2AE0-49BD-A9E1-385420759DE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E44B55E-2AE0-49BD-A9E1-385420759DE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E44B55E-2AE0-49BD-A9E1-385420759DE9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
