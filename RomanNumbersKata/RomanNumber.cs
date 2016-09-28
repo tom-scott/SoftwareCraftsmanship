@@ -11,26 +11,37 @@ namespace RomanNumbersKata
             _arabicToRoman = new Dictionary<int, string>
             {
                 {1, "I"},
-                {2, "II"},
-                {3, "III"},
                 {4, "IV"},
-                {5, "V"}
+                {5, "V"},
+                {9, "IX"}
             };
         }
 
         public string FromArabic(int arabic)
         {
-            string romanNumeral;
+            string romanNumeral = string.Empty;
 
-            if (arabic > 5)
+            if (_arabicToRoman.TryGetValue(arabic, out romanNumeral))
             {
-                var remainderBeyond5 = arabic - 5;
-                romanNumeral = _arabicToRoman[5];
-                romanNumeral += FromArabic(remainderBeyond5);
                 return romanNumeral;
             }
 
-            _arabicToRoman.TryGetValue(arabic, out romanNumeral);
+            if (arabic > 5)
+            {
+                var remainderArabic = arabic - 5;
+                romanNumeral = _arabicToRoman[5];
+                romanNumeral += FromArabic(remainderArabic);
+                return romanNumeral;
+            }
+
+            if (arabic > 1)
+            {
+                var remainderArabic = arabic - 1;
+                romanNumeral = _arabicToRoman[1];
+                romanNumeral += FromArabic(remainderArabic);
+                return romanNumeral;
+            }
+
             return romanNumeral;
 
         }
