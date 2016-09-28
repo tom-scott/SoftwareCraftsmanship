@@ -14,8 +14,7 @@ namespace RomanNumbersKata
                 {4, "IV"},
                 {5, "V"},
                 {9, "IX"},
-                {10, "X"},
-                {20, "XX"}
+                {10, "X"}
             };
         }
 
@@ -25,6 +24,14 @@ namespace RomanNumbersKata
 
             if (_arabicToRoman.TryGetValue(arabic, out romanNumeral))
             {
+                return romanNumeral;
+            }
+
+            if (arabic > 10)
+            {
+                var remainderArabic = arabic - 10;
+                romanNumeral = _arabicToRoman[10];
+                romanNumeral += FromArabic(remainderArabic);
                 return romanNumeral;
             }
 
