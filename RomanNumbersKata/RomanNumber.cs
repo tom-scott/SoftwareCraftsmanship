@@ -17,6 +17,8 @@ namespace RomanNumbersKata
                 {10, "X"},
                 { 40, "XL" },
                 { 50, "L" },
+                { 90, "XC" },
+                { 100, "C" },
             };
         }
 
@@ -31,26 +33,15 @@ namespace RomanNumbersKata
 
 
             int keyForRoman = 10;
+
+            foreach (var arabicKey in _arabicToRoman.Keys)
+            {
+                if (arabic > arabicKey)
+                {
+                    keyForRoman = arabicKey;
+                }
+            }
             
-            if (arabic > 1)
-            {
-                keyForRoman = 1;
-            }
-
-            if (arabic > 5)
-            {
-                keyForRoman = 5;
-            }
-
-            if (arabic > 10)
-            {
-                keyForRoman = 10;
-            }
-
-            if (arabic > 50)
-            {
-                keyForRoman = 50;
-            }
 
             var remainderArabic = arabic - keyForRoman;
             romanNumeral = _arabicToRoman[keyForRoman];
