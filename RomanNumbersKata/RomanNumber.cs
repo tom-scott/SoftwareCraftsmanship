@@ -18,6 +18,8 @@ namespace RomanNumbersKata
                 { 40, "XL" },
                 { 50, "L" },
                 { 60, "LX" },
+                { 70, "LXX" },
+                { 80, "LXXX" },
             };
         }
 

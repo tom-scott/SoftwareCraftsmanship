@@ -25,6 +25,9 @@ namespace RomanNumbersKata.UnitTests
         [TestCase("XXX", 30)]
         [TestCase("XL", 40)]
         [TestCase("L", 50)]
+        [TestCase("LX", 60)]
+        [TestCase("LXX", 70)]
+        [TestCase("LXXX", 80)]
         public void Return_ExpectedRomanNumeral_Given_Arabic(string expectedRomanNumeral, int arabic)
         {
             var romanNumeral = new RomanNumber().FromArabic(arabic);
