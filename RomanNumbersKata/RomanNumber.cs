@@ -27,32 +27,28 @@ namespace RomanNumbersKata
                 return romanNumeral;
             }
 
-            if (arabic > 10)
+
+            int keyForRoman = 10;
+            if (arabic > 1)
             {
-                var remainderArabic = arabic - 10;
-                romanNumeral = _arabicToRoman[10];
-                romanNumeral += FromArabic(remainderArabic);
-                return romanNumeral;
+                keyForRoman = 1;
             }
 
             if (arabic > 5)
             {
-                var remainderArabic = arabic - 5;
-                romanNumeral = _arabicToRoman[5];
-                romanNumeral += FromArabic(remainderArabic);
-                return romanNumeral;
+                keyForRoman = 5;
             }
 
-            if (arabic > 1)
+            if (arabic > 10)
             {
-                var remainderArabic = arabic - 1;
-                romanNumeral = _arabicToRoman[1];
-                romanNumeral += FromArabic(remainderArabic);
-                return romanNumeral;
+                keyForRoman = 10;
             }
 
-            return romanNumeral;
 
+            var remainderArabic = arabic - keyForRoman;
+            romanNumeral = _arabicToRoman[keyForRoman];
+            romanNumeral += FromArabic(remainderArabic);
+            return romanNumeral;
         }
     }
 }
