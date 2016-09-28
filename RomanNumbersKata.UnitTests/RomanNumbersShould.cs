@@ -27,6 +27,12 @@ namespace RomanNumbersKata.UnitTests
             romanNumeral.Should().Be("II");
         }
 
+        [Test]
+        public void Return_III_Given_3()
+        {
+            var romanNumeral = new RomanNumber().FromArabic(3);
 
+            romanNumeral.Should().Be("III");
+        }
     }
 }

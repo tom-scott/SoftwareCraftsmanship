@@ -5,9 +5,13 @@
         public string FromArabic(int arabic)
         {
             var romanNumeral = "I";
-            if (arabic == 2)
+            if (arabic >= 2)
             {
-                romanNumeral += romanNumeral;
+                romanNumeral += "I";
+            }
+            if (arabic >= 3)
+            {
+                romanNumeral += "I";
             }
             return romanNumeral;
 
