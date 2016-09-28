@@ -11,28 +11,14 @@ namespace RomanNumbersKata.UnitTests
     [TestFixture]
     public class RomanNumbersShould
     {
-        [Test]
-        public void Return_I_Given_1()
+        [TestCase("I", 1)]
+        [TestCase("II", 2)]
+        [TestCase("III", 3)]
+        public void Return_ExpectedRomanNumeral_Give_Arabic(string expectedRomanNumeral, int arabic)
         {
-            var romanNumeral = new RomanNumber().FromArabic(1);
+            var romanNumeral = new RomanNumber().FromArabic(arabic);
 
-            romanNumeral.Should().Be("I");
-        }
-
-        [Test]
-        public void Return_II_Given_2()
-        {
-            var romanNumeral = new RomanNumber().FromArabic(2);
-
-            romanNumeral.Should().Be("II");
-        }
-
-        [Test]
-        public void Return_III_Given_3()
-        {
-            var romanNumeral = new RomanNumber().FromArabic(3);
-
-            romanNumeral.Should().Be("III");
+            romanNumeral.Should().Be(expectedRomanNumeral);
         }
     }
 }
