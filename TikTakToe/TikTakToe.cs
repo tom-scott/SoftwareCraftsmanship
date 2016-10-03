@@ -6,16 +6,31 @@ namespace TikTakToeGame
     public class TikTakToe
     {
         private readonly Move[,] state = new Move[3,3];
-        
-        protected bool Equals(TikTakToe other)
+
+        public TikTakToe()
         {
             var columns = Enumerable.Range(0, 2);
             var rows = Enumerable.Range(0, 2);
+
+            foreach (var column in columns)
+            {
+                foreach (var row in rows)
+                {
+                    state[row, column] = Move.Empty;
+                }
+            }
+        }
+        
+        protected bool Equals(TikTakToe other)
+        {
+            var columns = Enumerable.Range(0, 3);
+            var rows = Enumerable.Range(0, 3);
             foreach (int col in columns)
                 foreach (var row in rows)
                 {
-                    var areEqual = 
-                        state[row, col] == other.state[row, col];
+                    var stateMove = (int) state[row, col];
+                    var otherMove = (int) other.state[row, col];
+                    var areEqual = stateMove == otherMove;
                     if (!areEqual)
                     {
                         return false;
