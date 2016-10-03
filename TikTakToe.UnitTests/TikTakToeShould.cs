@@ -60,5 +60,28 @@ namespace TikTakToeGame.UnitTests
 
             playedGame.Should().Be(samePlayedGame);
         }
+
+        [Test]
+        public void Play_X_When_Playing_The_First_Move_Given_Played_Game()
+        {
+            var game = new TikTakToe();
+            game.Play(Row.Top, Column.Left);
+
+            var symbolAtPosition = game.SymbolAt(Row.Top, Column.Left);
+
+            symbolAtPosition.Should().Be(Symbols.X);
+        }
+
+        [Test]
+        public void Play_O_When_Playing_The_Second_Move_Given_Played_Game()
+        {
+            var game = new TikTakToe();
+            game.Play(Row.Bottom, Column.Left);
+            game.Play(Row.Middle, Column.Left);
+
+            var symbolAtPosition = game.SymbolAt(Row.Middle, Column.Left);
+
+            symbolAtPosition.Should().Be(Symbols.O);
+        }
     }
 }

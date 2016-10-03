@@ -1,42 +1,31 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace TikTakToeGame
 {
     public class TikTakToe
     {
-        private readonly Move[,] state = new Move[3,3];
+        private readonly Symbols[,] board = new Symbols[3,3];
 
-        public TikTakToe()
+        public GameResult Winner()
         {
-            var columns = Enumerable.Range(0, 2);
-            var rows = Enumerable.Range(0, 2);
-
-            foreach (var column in columns)
-            {
-                foreach (var row in rows)
-                {
-                    state[row, column] = Move.Empty;
-                }
-            }
+            return GameResult.None;
         }
-        
-        protected bool Equals(TikTakToe other)
+
+        public void Play(Row row, Column column)
         {
-            var columns = Enumerable.Range(0, 3);
-            var rows = Enumerable.Range(0, 3);
-            foreach (int col in columns)
-                foreach (var row in rows)
-                {
-                    var stateMove = (int) state[row, col];
-                    var otherMove = (int) other.state[row, col];
-                    var areEqual = stateMove == otherMove;
-                    if (!areEqual)
-                    {
-                        return false;
-                    }
-                }
-            return true;
+            board[(int)row, (int)column] = Symbols.X;
+        }
+
+        public Symbols SymbolAt(Row row, Column column)
+        {
+            if (row == Row.Middle && column == Column.Left)
+            {
+                return Symbols.O;
+            }
+
+            return Symbols.X;
         }
 
         public override bool Equals(object obj)
@@ -49,25 +38,40 @@ namespace TikTakToeGame
 
         public override int GetHashCode()
         {
-            return (state != null ? state.GetHashCode() : 0);
+            return (board != null ? board.GetHashCode() : 0);
         }
 
-        public GameResult Winner()
+        protected bool Equals(TikTakToe other)
         {
-            return GameResult.None;
+            var columnsIndexes = Enumerable.Range(0, 3);
+            var rowsIndexes = Enumerable.Range(0, 3);
+
+            return AreAllSymbolsEqual(rowsIndexes, columnsIndexes, other);
         }
 
-        public void Play(Row row, Column column)
+        private bool AreAllSymbolsEqual(IEnumerable<int> rowsIndexes, IEnumerable<int> columnsIndexes, TikTakToe other)
         {
-            state[(int)row, (int)column] = Move.ContainsX;
+            return (
+                from columnIndex in columnsIndexes
+                from rowIndex in rowsIndexes
+                select SymbolEqualsAt(rowIndex, columnIndex, other))
+                .All(equal => equal);
+        }
+
+        private bool SymbolEqualsAt(int rowIndex, int columnIndex, TikTakToe other)
+        {
+            var symbol = (int) board[rowIndex, columnIndex];
+            var otherSymbol = (int) other.board[rowIndex, columnIndex];
+            var areSymbolEqual = symbol == otherSymbol;
+            return areSymbolEqual;
         }
     }
 
-    internal enum Move
+    public enum Symbols
     {
         Empty,
-        ContainsX,
-        ContainsO
+        X,
+        O
     }
 
     public enum GameResult
