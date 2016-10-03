@@ -83,5 +83,18 @@ namespace TikTakToeGame.UnitTests
 
             symbolAtPosition.Should().Be(Symbols.O);
         }
+
+        [Test]
+        public void Play_X_When_Playing_Given_2_Moves()
+        {
+            var game = new TikTakToe();
+            game.Play(Row.Bottom, Column.Left);
+            game.Play(Row.Bottom, Column.Center);
+            game.Play(Row.Middle, Column.Left);
+
+            var symbolAtPosition = game.SymbolAt(Row.Middle, Column.Left);
+
+            symbolAtPosition.Should().Be(Symbols.X);
+        }
     }
 }

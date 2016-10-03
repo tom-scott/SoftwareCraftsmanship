@@ -7,6 +7,7 @@ namespace TikTakToeGame
     public class TikTakToe
     {
         private readonly Symbols[,] board = new Symbols[3,3];
+        private Symbols previousMoveSymbol = Symbols.Empty;
 
         public GameResult Winner()
         {
@@ -15,17 +16,21 @@ namespace TikTakToeGame
 
         public void Play(Row row, Column column)
         {
-            board[(int)row, (int)column] = Symbols.X;
+            var currentMoveSymbol = Symbols.X;
+
+            if (previousMoveSymbol == Symbols.X)
+            {
+                currentMoveSymbol = Symbols.O;
+            }
+
+            board[(int)row, (int)column] = currentMoveSymbol;
+
+            previousMoveSymbol = currentMoveSymbol;
         }
 
         public Symbols SymbolAt(Row row, Column column)
         {
-            if (row == Row.Middle && column == Column.Left)
-            {
-                return Symbols.O;
-            }
-
-            return Symbols.X;
+            return board[(int) row, (int)column];
         }
 
         public override bool Equals(object obj)
