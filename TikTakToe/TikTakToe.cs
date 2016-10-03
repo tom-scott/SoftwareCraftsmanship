@@ -16,16 +16,20 @@ namespace TikTakToeGame
 
         public void Play(Row row, Column column)
         {
-            var currentMoveSymbol = Symbols.X;
-
-            if (previousMoveSymbol == Symbols.X)
-            {
-                currentMoveSymbol = Symbols.O;
-            }
+            var currentMoveSymbol = CurrentMoveSymbol();
 
             board[(int)row, (int)column] = currentMoveSymbol;
 
             previousMoveSymbol = currentMoveSymbol;
+        }
+
+        private Symbols CurrentMoveSymbol()
+        {
+            if (previousMoveSymbol == Symbols.X)
+            {
+                return Symbols.O;
+            }
+            return Symbols.X;
         }
 
         public Symbols SymbolAt(Row row, Column column)
